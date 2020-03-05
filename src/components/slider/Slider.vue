@@ -1,10 +1,10 @@
 <template>
     <div
         class="b-slider"
-        :class="[size, type, rootClasses]">
+        @click="onSliderClick"
+        :class="[{'slider-focus': biggerSliderFocus},size, type, rootClasses ]">
         <div
             class="b-slider-track"
-            @click="onSliderClick"
             ref="slider">
             <div
                 class="b-slider-fill"
@@ -105,7 +105,11 @@ export default {
             default: false
         },
         customFormatter: Function,
-        ariaLabel: [String, Array]
+        ariaLabel: [String, Array],
+        biggerSliderFocus: {
+            type: Boolean,
+            default: false
+        }
     },
     data() {
         return {
